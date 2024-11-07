@@ -1,4 +1,4 @@
-export const dictionary  = {
+export const dictionary = {
     "hello": "здравствуйте",
     "world": "мир",
     "friend": "друг",
@@ -20,3 +20,19 @@ export const dictionary  = {
     "book": "книга",
     "computer": "компьютер"
 };
+
+export function fakeTranslate(word) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const translation = dictionary[word.toLowerCase()];
+            if (translation) {
+                resolve(translation);
+            } else {
+                reject("Перевод не найден.");
+            }
+        }, 1000); // Задержка 1 секунда
+    });
+}
+
+
+
